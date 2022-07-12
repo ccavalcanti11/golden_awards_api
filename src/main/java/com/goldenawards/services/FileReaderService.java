@@ -30,7 +30,7 @@ public class FileReaderService {
             if (Objects.isNull(inputStream)) {
                 inputStream = this.getFileInputStream(MOVIELIST);
             }
-//            movieService.getMoviesFromRecords(this.readCsvFile(inputStream, Boolean.TRUE));
+            movieService.getMoviesFromRecords(this.readCsvFile(inputStream, Boolean.TRUE));
         } catch (Exception e) {
             LOGGER.error("ERROR", e);
             throw e;

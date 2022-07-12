@@ -43,7 +43,7 @@ public class RangeService {
     }
 
     private void saveMinRange(List<MovieDetailsDTO> min) {
-        List<MovieProducer> allMinRange = movieProducerRepository.findAllByWin();
+        List<MovieProducer> allMinRange = movieProducerRepository.findAllByWinningRangeNotNullOrderByWinningRange();
         ListIterator<MovieProducer> minRangeIterator = allMinRange.listIterator();
 
         MovieProducer previous = null;
@@ -66,7 +66,7 @@ public class RangeService {
     }
 
     private void saveMaxRange(List<MovieDetailsDTO> max) {
-        List<MovieProducer> allMaxRange = movieProducerRepository.findAllByWinDesc();
+        List<MovieProducer> allMaxRange = movieProducerRepository.findAllByWinningRangeNotNullOrderByWinningRangeDesc();
 
         ListIterator<MovieProducer> maxRangeIterator = allMaxRange.listIterator();
         MovieProducer previous = null;
@@ -92,7 +92,7 @@ public class RangeService {
         LOGGER.info("calculate win range");
 
         producerRepository.findAll().forEach(producer -> {
-            this.saveMovieProducerRepository(movieProducerRepository.findWinnerByMovieYearDesc(producer, Boolean.TRUE));
+            this.saveMovieProducerRepository(movieProducerRepository.findByProducerAndMovieIsWinnerOrderByMovieYearDesc(producer, Boolean.TRUE));
         });
 
     }

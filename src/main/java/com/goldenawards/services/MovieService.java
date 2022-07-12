@@ -30,6 +30,7 @@ public class MovieService {
 
     @Autowired
     private MovieProducerRepository movieProducerRepository;
+
     public void getMoviesFromRecords(List<Record> records) {
         records.forEach(record -> {
             LOGGER.info("RECORD: " + record);

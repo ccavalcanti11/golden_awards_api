@@ -66,7 +66,7 @@ class AwardsApplicationTests {
 	@Test
 	void isWinningRangeReturning() throws Exception {
 		String jsonResult = "{\"min\":[{\"producer\":\"Joel Silver\",\"interval\":1,\"previousWin\":1990,\"followingWin\":1991}],\"max\":[{\"producer\":\"Matthew Vaughn\",\"interval\":13,\"previousWin\":2002,\"followingWin\":2015}]}";
-		mockMvc.perform(get("/movie-producer/winning-range"))
+		mockMvc.perform(get("/movies/range"))
 				.andExpect(status().isOk())
 				.andExpect(content().string(jsonResult));
 	}

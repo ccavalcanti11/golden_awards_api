@@ -12,7 +12,7 @@
 	<artifactId>goldenawards</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>goldenraspberryawards</name>
-	<description>Simple restful api about golden rapsberry awards</description>
+	<description>Simple restful api about golden raspberry awards</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

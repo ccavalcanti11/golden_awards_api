@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface MovieProducerRepository extends JpaRepository<MovieProducer, Long> {
 
-    List<MovieProducer> findWinnerByMovieYearDesc(Producer producer, Boolean isWinner);
+    List<MovieProducer> findByProducerAndMovieIsWinnerOrderByMovieYearDesc(Producer producer, Boolean isWinner);
 
-    List<MovieProducer> findAllByWin();
+    List<MovieProducer> findAllByWinningRangeNotNullOrderByWinningRange();
 
-    List<MovieProducer> findAllByWinDesc();
+    List<MovieProducer> findAllByWinningRangeNotNullOrderByWinningRangeDesc();
 }

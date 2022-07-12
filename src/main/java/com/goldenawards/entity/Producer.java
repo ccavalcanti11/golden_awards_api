@@ -1,11 +1,7 @@
 package com.goldenawards.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,9 +13,8 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
-@Table(name = "movies")
-public class Movie implements Serializable {
-
+@Table(name = "producers")
+public class Producer implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,19 +22,10 @@ public class Movie implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "release_year")
-    private Integer year;
-
     @Column(length = 256)
-    private String title;
-
-    @Column(length = 256)
-    private String studios;
-
-    @Column(name = "winner")
-    private Boolean isWinner;
+    private String name;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "producer")
     private List<MovieProducer> movieProducer;
 }
